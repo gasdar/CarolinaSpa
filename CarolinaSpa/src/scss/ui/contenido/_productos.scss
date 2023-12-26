@@ -1,0 +1,65 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.productos {
+
+    &__heading{
+        @include m.headingCursiva;
+        margin-bottom: 5rem;
+    }
+    &__grid {
+
+        @include m.tablet {
+            @include m.grid(2, 5rem);
+        }
+        @include m.desktop {
+            @include m.grid(4, 2rem);
+        }
+    }
+
+}
+
+.producto {
+    background-color: v.$blanco;
+    max-width: 50rem;
+    margin: 0 auto 3rem auto;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+    @include m.tablet {
+        margin-bottom: 0;
+    }
+    &__mask {
+        overflow: hidden;
+    }
+    &__imagen {
+        width: 100%;
+        height: auto;
+        transition-property: transform;
+        transition-duration: 300ms;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+    &__contenido {
+        padding: 2rem;
+    }
+    &__nombre {
+        @include m.heading;
+        color: v.$secundario;
+        font-size: 2.5rem;
+    }
+    &__descripcion {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        line-height: 1.8;
+    }
+    &__precio {
+        text-align: center;
+        color: v.$gris;
+        font-size: 2.8rem;
+        margin: 0;
+    }
+}

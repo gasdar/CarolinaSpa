@@ -1,0 +1,97 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.notavif.notwebp .horario {
+    background-image: linear-gradient(to bottom, v.$primario 0%, v.$primario 50%, transparent 50%, transparent 100%), url('../img/bg_horarios.jpg');
+
+    @include m.tablet {
+        background-image: linear-gradient(to right, v.$primario 0%, v.$primario 50%, transparent 50%, transparent 100%), url('../img/bg_horarios.jpg');
+    }
+}
+.webp .horario {
+    background-image: linear-gradient(to bottom, v.$primario 0%, v.$primario 50%, transparent 50%, transparent 100%), url('../img/bg_horarios.webp');
+
+    @include m.tablet {
+        background-image: linear-gradient(to right, v.$primario 0%, v.$primario 50%, transparent 50%, transparent 100%), url('../img/bg_horarios.webp');
+    }
+}
+.avif .horario {
+    background-image: linear-gradient(to bottom, v.$primario 0%, v.$primario 50%, transparent 50%, transparent 100%), url('../img/bg_horarios.avif');
+
+    @include m.tablet {
+        background-image: linear-gradient(to right, v.$primario 0%, v.$primario 50%, transparent 50%, transparent 100%), url('../img/bg_horarios.avif');
+    }
+}
+
+.horario {
+    background-repeat: repeat, no-repeat;
+    background-size: 100%, 230rem;
+    background-position: center, 12% 96rem;
+    color: v.$blanco;
+
+    @media (min-width: 378px) {
+        background-size: 100%, 240rem;
+        background-position: center, 12% 84rem;
+    }
+    @include m.telefono {
+        background-size: 100%, 220rem;
+        background-position: center, 12% 76rem;
+    }
+    @include m.tablet {
+        background-size: 100%, 230rem;
+        background-position: center, 75% 0rem;
+    }
+    @media (min-width: 2000px) {
+        background-size: 100%, 250rem;
+        background-position: center, 80% 0rem;
+    }
+    @media (min-width: 2500px) {
+        background-position: center, 100% 0rem;
+        background-size: 100%, 300rem;
+    }
+    &__grid {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+
+        @include m.tablet {
+            grid-template-rows: unset;
+            @include m.grid(2, 5rem);
+        }
+    }
+    &__contenido {
+        padding: 5rem 0;
+    }
+    &__heading {
+        @include m.heading;
+    }
+    &__texto {
+        font-size: 2.2rem;
+        line-height: 1.8;
+        text-align: center;
+    }
+}
+
+.tabla {
+    width: 100%;
+    border: 0.5rem solid v.$secundario;
+    text-align: center;
+    border-collapse: collapse;
+
+    &__thead {
+        background-color: v.$secundario;
+    }
+    &__tr {
+        background-color: v.$primario;
+
+        &:hover {
+            background-color: darken(v.$primario, 10%);
+        }
+    }
+    &__th {
+        padding: 2rem;
+    }
+    &__td {
+        padding: 1rem;
+        font-size: 2.2rem;
+    }
+}
